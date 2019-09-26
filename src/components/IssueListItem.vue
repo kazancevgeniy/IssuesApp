@@ -21,10 +21,11 @@
                 >{{issue.title}}</router-link>
             </div>
             <div class="issue__comment">
-                <span><svg class="octicon octicon-comment v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path>
+                <!-- <span> -->
+                    <svg class="issue__comment-icon" viewBox="0 0 16 16" version="1.1" width="14" height="14" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path>
                     </svg>
-                </span>
+                <!-- </span> -->
                 <span class="issue__comment-sum">{{issue.comments}}</span>
             </div>
         </div>
@@ -83,7 +84,6 @@ export default {
                 }
 
                 &-title {
-                    // margin-right: 10px;
                     font-size: 16px;
                     color: black;
                     text-decoration: none;
@@ -96,12 +96,19 @@ export default {
                 }
             }
             .issue__comment {
+                position: relative;
                 margin-left: auto;
                 &-sum {
                     display: inline-block;
                     width: 10px;
                     font-size: 15px;
                     text-align: right;
+                }
+                &-icon {
+                    position: absolute;
+                    left: -17px;
+                    top: 3px;
+                    margin-right: 5px;
                 }
             }
         }
