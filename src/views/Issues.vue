@@ -1,16 +1,12 @@
 <template>
     <div class="issues" v-if="getIssues.length">
         <div class="issues__list-wrapper">
-            <ul
-                v-for="issue in getIssues"
-                :key="issue.id"
-                class="issues__list"
-            >
-                <IssueListItem :issue="issue"/>
-                <!-- <li class="issue__item">
-                    <span>{{issue.number}}</span>
-                    <span>{{issue.title}}</span>
-                </li> -->
+            <ul>
+                <IssueListItem
+                    v-for="issue in getIssues"
+                    :key="issue.id"
+                    :issue="issue"
+                />
             </ul>
             <div class="issues__pagination">
                 <button @click="goPrev" class="issues__pagination-btn">Prev</button>

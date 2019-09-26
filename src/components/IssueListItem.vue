@@ -8,7 +8,11 @@
             </div>
             <div class="issue__info">
                 <div class="issue__info-labels" v-if="issue.labels.length">
-                    <span v-for="label in issue.labels" :key="label.id">{{label.name}}</span>
+                    <span
+                        v-for="label in issue.labels"
+                        :key="label.id"
+                        :style="{'background-color' : `#${label.color}`}"
+                    >{{label.name}}</span>
                 </div>
                 <span class="issue__info-number">#{{issue.number}}</span>
                 <router-link
@@ -45,7 +49,7 @@ export default {
             position: relative;
             width: 100%;
             display: flex;
-            padding: 15px;
+            padding: 20px 10px;
             border-top: 1px solid #e1e4e8;
             .issue__icon-wrapper {
                 margin-right: 10px;
@@ -62,8 +66,14 @@ export default {
 
                 &-labels {
                     position: absolute;
-                    bottom: 1px;
+                    bottom: 5px;
+                    left: 83px;
                     font-size: 12px;
+                    color: white;
+                    span {
+                        padding: 1px 5px;
+                        margin-right: 5px;
+                    }
                 }
 
                 &-number {
