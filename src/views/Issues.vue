@@ -1,10 +1,16 @@
 <template>
     <div class="issues">
         <div class="issues__list-wrapper">
-            <ul class="issues__list">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+            <ul
+                v-for="issue in getIssues"
+                :key="issue.id"
+                class="issues__list"
+            >
+                <IssueListItem :issue="issue"/>
+                <!-- <li class="issue__item">
+                    <span>{{issue.number}}</span>
+                    <span>{{issue.title}}</span>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -12,8 +18,13 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import IssueListItem from '@/components/IssueListItem.vue'
 
 export default {
+    name: 'Issues',
+    components: {
+        IssueListItem
+    },
     data() {
         return {
 
