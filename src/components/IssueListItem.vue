@@ -7,6 +7,9 @@
                 </svg>
             </div>
             <div class="issue__info">
+                <div class="issue__info-labels" v-if="issue.labels.length">
+                    <span v-for="label in issue.labels" :key="label.id">{{label.name}}</span>
+                </div>
                 <span class="issue__info-number">#{{issue.number}}</span>
                 <router-link
                     :value="6"
@@ -40,11 +43,11 @@ export default {
 <style lang="scss">
     .issue {
         .issue-wrapper {
+            position: relative;
             width: 100%;
             display: flex;
             padding: 15px;
             border-top: 1px solid #e1e4e8;
-            // justify-content: space-between;
             .issue__icon-wrapper {
                 margin-right: 10px;
                 
@@ -55,13 +58,21 @@ export default {
             .issue__info {
                 max-width: 600px;
                 white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                &-labels {
+                    position: absolute;
+                    bottom: 1px;
+                    font-size: 12px;
+                }
+
                 &-number {
                     margin-right: 10px;
                     font-size: 12px;
                     color: darken(grey, 20%);
                 }
+
                 &-title {
                     // margin-right: 10px;
                     font-size: 16px;

@@ -3,6 +3,9 @@
         <p class="issue__title">Номер: <span>{{issue.number}}</span></p>
         <p class="issue__title">Назавние задачи: <span>{{issue.title}}</span></p>
     </div>
+    <div class="loading" v-else>
+        <h1>Загрузка...</h1>
+    </div>
 </template>
 
 <script>
@@ -20,8 +23,12 @@ export default {
     },
     methods: {
         async getIssueById() {
-            const {data} = await axios.get('https://api.github.com/repos/vuejs/vue/issues/' + this.$route.params.id);
-            this.issue = data;
+            try {
+                const {data} = await axios.get('https://api.github.com/repos/vuejs/vue/issues/' + this.$route.params.id);
+                this.issue = data;
+            } catch(e) {
+                console.log(e);
+            }   
         }
     }
 }
@@ -40,5 +47,10 @@ export default {
                 color: black;
             }
         }
+    }
+    .loading {
+        width: 500px;
+        margin: 100px auto;
+        text-align: center;
     }
 </style>
