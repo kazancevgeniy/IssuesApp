@@ -23,7 +23,8 @@ export default new Router({
     {
       path: '/issues/:id',
       name: 'issue',
-      component: () => import('./views/Issue.vue')
+      component: () => import('./views/Issue.vue'),
+      props: true
     }
   ]
 })

@@ -49,6 +49,7 @@ export default {
         &__list-wrapper {
             width: 50%;
             margin: 0 auto;
+            margin-top: 100px;
         }
     }
 </style>

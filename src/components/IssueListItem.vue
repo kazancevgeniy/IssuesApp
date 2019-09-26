@@ -7,15 +7,19 @@
                 </svg>
             </div>
             <div class="issue__info">
-                <span>#{{issue.number}}</span>
-                <router-link :to="  `/issues:${issue.id}`">{{issue.title}}</router-link>
+                <span class="issue__info-number">#{{issue.number}}</span>
+                <router-link
+                    :value="6"
+                    class="issue__info-title"
+                    :to="`/issues/${issue.number}`"
+                >{{issue.title}}</router-link>
             </div>
             <div class="issue__comment">
                 <span><svg class="octicon octicon-comment v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
                     <path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path>
                     </svg>
                 </span>
-                <span>{{issue.comments}}</span>
+                <span class="issue__comment-sum">{{issue.comments}}</span>
             </div>
         </div>
     </div>
@@ -37,6 +41,49 @@ export default {
     .issue {
         .issue-wrapper {
             width: 100%;
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #e1e4e8;
+            // justify-content: space-between;
+            .issue__icon-wrapper {
+                margin-right: 10px;
+                
+                .issue__icon {
+                    fill: #28a745;
+                }
+            }
+            .issue__info {
+                max-width: 600px;
+                white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                &-number {
+                    margin-right: 10px;
+                    font-size: 12px;
+                    color: darken(grey, 20%);
+                }
+                &-title {
+                    // margin-right: 10px;
+                    font-size: 16px;
+                    color: black;
+                    text-decoration: none;
+                    font-weight: 600;
+                    
+
+                    &:hover {
+                        color: grey;
+                    }
+                }
+            }
+            .issue__comment {
+                margin-left: auto;
+                &-sum {
+                    display: inline-block;
+                    width: 10px;
+                    font-size: 15px;
+                    text-align: right;
+                }
+            }
         }
     }
 </style>
