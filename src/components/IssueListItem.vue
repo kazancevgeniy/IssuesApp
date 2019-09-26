@@ -12,9 +12,8 @@
                 </div>
                 <span class="issue__info-number">#{{issue.number}}</span>
                 <router-link
-                    :value="6"
                     class="issue__info-title"
-                    :to="`/issues/${issue.number}`"
+                    :to="{name: 'issue', params: {id: issue.number, issue}}"
                 >{{issue.title}}</router-link>
             </div>
             <div class="issue__comment">

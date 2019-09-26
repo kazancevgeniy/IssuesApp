@@ -13,22 +13,9 @@ import axios from 'axios'
 
 export default {
     name: 'Issue',
-    data() {
-        return {
-            issue: null
-        }
-    },
-    created() {
-        this.getIssueById()
-    },
-    methods: {
-        async getIssueById() {
-            try {
-                const {data} = await axios.get('https://api.github.com/repos/vuejs/vue/issues/' + this.$route.params.id);
-                this.issue = data;
-            } catch(e) {
-                console.log(e);
-            }   
+    props: {
+        issue: {
+            type: Object
         }
     }
 }
