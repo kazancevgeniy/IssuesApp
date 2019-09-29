@@ -21,11 +21,9 @@
                 >{{issue.title}}</router-link>
             </div>
             <div class="issue__comment">
-                <!-- <span> -->
                     <svg class="issue__comment-icon" viewBox="0 0 16 16" version="1.1" width="14" height="14" aria-hidden="true">
                         <path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path>
                     </svg>
-                <!-- </span> -->
                 <span class="issue__comment-sum">{{issue.comments}}</span>
             </div>
         </div>
@@ -51,6 +49,7 @@ export default {
             width: 100%;
             display: flex;
             padding: 20px 10px;
+            padding-top: 10px;
             border-top: 1px solid #e1e4e8;
             .issue__icon-wrapper {
                 margin-right: 10px;
@@ -61,6 +60,7 @@ export default {
             }
             .issue__info {
                 max-width: 600px;
+                padding-right: 25px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;

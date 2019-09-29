@@ -1,6 +1,7 @@
 <template>
     <div class="issues" v-if="getIssues.length">
         <div class="issues__list-wrapper">
+            <div class="issues__title">Page: {{pageNumber}}</div>
             <ul>
                 <IssueListItem
                     v-for="issue in getIssues"
@@ -59,11 +60,13 @@ export default {
     .issues {
         width: 100%;
 
+        &__title {
+            text-align: center;
+            padding: 20px 0;
+        }
         &__list-wrapper {
             width: 50%;
-            margin: 100px auto;
-            // margin-top: 100px;
-            // margin-bottom: ;
+            margin: 0px auto;
         }
         &__pagination {
             margin-top: 40px;
